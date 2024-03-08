@@ -1,0 +1,78 @@
+body {
+    background-color: lightgreen;
+    text-align: center;
+    background-image: linear-gradient(to right, rgb(0, 255, 174), rgb(47, 255, 0), #0f0);
+
+  }
+  
+  h1 {
+    font-family: Helvetica;
+    font-size: 100px;
+    font-weight: bold;
+    color: black;
+    margin-top: 40px;
+    font-family: Tahoma, "Trebuchet MS", sans-serif;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    
+}   
+
+form input[type="text"] {
+  display: block;
+  margin: auto;
+  margin-bottom: 20;
+  margin-top: 20;
+  font-size: 100;
+  font-style: Tahoma, "Trebuchet MS", sans-serif;
+  }
+
+button {
+    display: inline-block;
+    margin: 30px 60px auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    border-width: 3px;
+    background-color: rgb(118, 207, 237);
+    transition: background-color 0.5s ease;
+    font-size: 30px;
+    font-style: Tahoma, "Trebuchet MS", sans-serif; 
+    font-weight: bold;
+    color: #000; 
+    transition: color 1s ease;
+  }
+  button:hover {
+    background-color: rgb(56, 128, 204); 
+    color:rgb(192, 220, 84);
+  }
+
+  #feedback-text {
+    font-family: Helvetica;
+    font-size: 100px;
+    font-weight: bold;
+    color: black;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-family: Tahoma, "Trebuchet MS", sans-serif;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Target the dynamically added button using a class name */
+.new-button {
+  background-color: #0c21b9; /* Green color */
+  color: white;
+  width: 400px;
+  height: 100px;
+  margin-top: 0;
+}
+  
+
+
+
+
+  
+
+
+  
+ 
+
+
