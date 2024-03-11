@@ -1,6 +1,4 @@
-
   const buttons = document.querySelectorAll('button');
-
   let wordPairs = [
     ["Jänner", "Januar"],
     ["Erdapfel", "Kartoffel"],
@@ -10,7 +8,6 @@
     const randomIndex = Math.floor(Math.random() * wordPairs.length); // Get random index
     return wordPairs[randomIndex]; // Return the word pair at the chosen index
   }
-
 
   function random0or1() {
     // Generate and round a random decimal between 0 and 1
@@ -46,17 +43,16 @@
         const newButton = document.createElement('button');
         newButton.classList.add('new-button');
         newButton.textContent = 'Click here to continue'; // Or any desired text
-        
+        feedbackContainer.appendChild(newButton);   // Append the button to the container
+        buttons.forEach(button => button.disabled = true); // Disable both buttons after the feedback and button creation
         // Add event listener for the new button (optional)
         newButton.addEventListener('click', () => {
           // Perform actions when the added button is clicked
           window.location.reload(); // Reload the page, for example
         });
     
-        // Append the button to the container
-        feedbackContainer.appendChild(newButton);
-        // Disable both buttons after the feedback and button creation
-        buttons.forEach(button => button.disabled = true);
+       
+       
 
       });
     });
