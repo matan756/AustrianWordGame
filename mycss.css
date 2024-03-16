@@ -1,8 +1,6 @@
 body {
-    background-color: lightgreen;
     text-align: center;
-    background-image: linear-gradient(to right, rgb(0, 255, 174), rgb(47, 255, 0), #0f0);
-
+    background-image: linear-gradient(to right, rgb(0, 234, 255), rgb(0, 234, 255), rgb(0, 200, 255));
   }
   
   h1 {
@@ -13,8 +11,7 @@ body {
     margin-top: 40px;
     font-family: Tahoma, "Trebuchet MS", sans-serif;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    
-}   
+    }   
 
 form input[type="text"] {
   display: block;
@@ -50,22 +47,28 @@ button {
     font-size: 100px;
     font-weight: bold;
     color: black;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-family: Tahoma, "Trebuchet MS", sans-serif;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   /* Target the dynamically added button using a class name */
 .new-button {
+  margin: 0 auto; 
   background-color: #0c21b9; /* Green color */
   color: white;
   width: 400px;
   height: 100px;
-  margin-top: 0;
 }
   
-
+.img {
+  display: block; 
+  margin: 0 auto; 
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15;
+}
 
 
 
