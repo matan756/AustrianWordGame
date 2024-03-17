@@ -4,7 +4,28 @@ let Score;
 let wordPairs = [
   ["Topfen", "Quark"],
   ["Marille", "Aprikose"],
-  ["Ribisel", "Johannisbeeren"]
+  ["Ribisel", "Johannisbeeren"],
+  ["Schlagobers", "Sahne"],
+  ["Heuriger", "Weinstube"],
+  ["Palatschinken", "Pfannkuchen"],
+  ["Gugelhupf", "Napfkuchen"],
+  ["Semmel", "Brötchen"],
+  ["Melanzani", "Aubergine"],
+  ["Vogerlsalat", "Feldsalat"],
+  ["Kren", "Meerrettich"],
+  ["Buchteln", "Ofennudeln"],
+  ["Rauchfangkehrer", "Schornsteinfeger"],
+  ["Eierschwammerl", "Pfifferlinge"],
+  ["Powidl", "Pflaumenmus"],
+  ["Stiegen", "Treppen"],
+  ["Pölster", "Kopfkissen"],
+  ["Mahlzeit", "Guten Appetit"],
+  ["Spital", "Krankenhaus"],
+  ["Sackerl", "Tüten"],
+  ["Paradeiser", "Tomate"],
+  ["Kukuruz", "Mais"],
+  ["Haberer", "Kumpel"],
+  ["Leiwand", "Großartig"]
 ]; // The word pairs for the quiz. The correct word is saved in the 0th index of every element.
 const ArraySize=wordPairs.length; //Save the array length. 
 const positiveFeedback = [
@@ -151,7 +172,7 @@ console.log(Score);
     }
     else
     {
-      pagetitle.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br> Your score is: " + Score + "<br> You can try it again!"; 
+      pagetitle.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br> Your score is: " + Score + "<br> You can try again!"; 
       console.log(pagetitle);
     }
 
