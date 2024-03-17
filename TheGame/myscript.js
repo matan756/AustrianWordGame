@@ -174,19 +174,31 @@ console.log(Score);
       pagetitle0.innerHTML="Your score is: " + Score +"<br>"; 
       pagetitle1.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br>"; 
       pagetitle2.innerHTML="I guess you are a native speaker!"; 
-      
+      const firework0 = document.getElementById('firework0'); 
+      firework0.classList.add('firework');
+      const firework1 = document.getElementById('firework1'); 
+      firework1.classList.add('firework');
+      const firework2 = document.getElementById('firework2'); 
+      firework2.classList.add('firework');
     }
     else if (70<Score && Score<100) 
     {
       pagetitle0.innerHTML="Your score is: " + Score +"<br>"; 
       pagetitle1.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br>"; 
-      pagetitle2.innerHTML="Good job!";     
+      pagetitle2.innerHTML="Good job!";    
+      const firework0 = document.getElementById('firework0'); 
+      firework0.classList.add('firework');
+      const firework1 = document.getElementById('firework1'); 
+      firework1.classList.add('firework');
+      const firework2 = document.getElementById('firework2'); 
+      firework2.classList.add('firework');
     }
+    
     else
     {
       pagetitle0.innerHTML="Your score is: " + Score +"<br>"; 
       pagetitle1.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br>"; 
-      pagetitle2.innerHTML="You can try again!";          
+      pagetitle2.innerHTML="You can try again!";      
     }
 
     
