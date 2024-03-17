@@ -1,30 +1,32 @@
-const buttons = document.querySelectorAll('button');
-
+const buttons = document.querySelectorAll('button'); // Access the buttons from the html file
+let CorrectAnswers = 0; 
+let Score; 
 let wordPairs = [
   ["Topfen", "Quark"],
   ["Marille", "Aprikose"],
   ["Ribisel", "Johannisbeeren"]
-];
-
+]; // The word pairs for the quiz. The correct word is saved in the 0th index of every element.
+const ArraySize=wordPairs.length; //Save the array length. 
 const positiveFeedback = [
   "Correct!",
+  "Amazing!",
+  "You're awesome!",
   "Excellent!",
   "Great job!",
   "Keep it up!",
-  "On the right track!",
+  "You're the right track!",
   "Nailed it! Are you sure you're not Austrian?",
   "You got it right!",
   "Maybe you should move to Vienna! You're a natural"
-];
-
+]; 
 function getPositiveFeedback() {
   const randomIndex = Math.floor(Math.random() * positiveFeedback.length);
   return positiveFeedback[randomIndex];
-}
+} // Lot a positive feedback for a correct answer
 function handleCorrectAnswer() {
   const feedbackText = document.getElementById('feedback-text');
   feedbackText.textContent = getPositiveFeedback();
-}
+} // Insert the positive feedback in the html file
 
 const negativeFeedback = [
   "False",
@@ -34,83 +36,132 @@ const negativeFeedback = [
   "False...",
   "Incorrect",
   "No, it's actually the other option"
-];
+]; 
 
 function getNegativeFeedback() {
   const randomIndex = Math.floor(Math.random() * negativeFeedback.length);
   return negativeFeedback[randomIndex];
-}
+} // Lot a negative feedback for a false answer
 function handleFalseAnswer() {
   const feedbackText = document.getElementById('feedback-text');
   feedbackText.textContent = getNegativeFeedback();
-}
+} // Insert the negative feedback in the html file
 
-let happysmile = document.getElementById("image-container");
-let newImage = document.createElement('img');
-newImage.classList.add('img'); // Creating a class for CSS purposes
+let happysmile = document.getElementById("image-container"); // Access the image container in the html file 
+let newImage = document.createElement('img'); // Create an img element inside the image container
+newImage.classList.add('img'); // Create a class for CSS purposes
 
 function getRandomWordPair() {
   const IndexChosenPair = Math.floor(Math.random() * wordPairs.length);
   const chosenPair=wordPairs[IndexChosenPair];
   wordPairs.splice(IndexChosenPair,1)
   return chosenPair;
-}
+} // Choose a random word pair from the wordPairs array and remove the chosen word pair from the array
 
 function random0or1() {
-  const randomDecimal = Math.random();  // Generate a random decimal between 0 and 1
-  return Math.round(randomDecimal);  // Give me either 0 or 1
-}
-let CounterLottedPairs = 0; 
+  const randomDecimal = Math.random(); 
+  return Math.round(randomDecimal);  
+} // Give randomly either 1 or 0
+
+let CounterLottedPairs = 0;  // Count the number of pairs that have been lotted
+
+// Insert two words to the buttons and provide a feedback by clicking on one of them: // 
 function setButtonTexts() {
-  const chosenPair = getRandomWordPair();
+  const chosenPair = getRandomWordPair(); // Take a random word pair from the array
   console.log(chosenPair);
-  CounterLottedPairs++;
+  CounterLottedPairs++; // Add the word pair to the count of lotted pairs
   console.log(CounterLottedPairs);
   let originallyLeftWord = chosenPair[0]; // The correct answer of a given wordPair
+  
   let switchSides = random0or1(); // Randomly choose whether to switch sides or not
+  buttons[0].textContent = switchSides ? chosenPair[1] : chosenPair[0];   
+  buttons[1].textContent = switchSides ? chosenPair[0] : chosenPair[1];   
 
-  buttons[0].textContent = switchSides ? chosenPair[1] : chosenPair[0];   // Assign words to buttons based on the switching decision
-  buttons[1].textContent = switchSides ? chosenPair[0] : chosenPair[1];   // Assign words to buttons based on the switching decision
-
-  buttons.forEach(button => button.disabled = false);   // Add click event listeners to both buttons
-  buttons.forEach((button, index) => {
+  buttons.forEach(button => button.disabled = false);   // Enable clicking on each button
+  buttons.forEach((button, index) =>  // Provide a feedback after a word is clicked. 
+  { 
     button.addEventListener('click', () => {
-      const feedbackText = document.getElementById('feedback-text');
       if (button.textContent === originallyLeftWord) 
       {
+        CorrectAnswers++; 
         handleCorrectAnswer();
         newImage;
         newImage.src = 'Happysmile.png';
-        happysmile.appendChild(newImage); 
+        happysmile.appendChild(newImage);
+        button.style.backgroundImage = "url(flagaustria.png)"; 
+        button.style.backgroundSize = "cover"; 
       } else {
         handleFalseAnswer();
         newImage;
         newImage.src = 'Sadsmile.png';
         happysmile.appendChild(newImage); 
+        button.style.backgroundImage = "url(germany.png)"; 
+        button.style.backgroundSize = "cover"; 
       }
       buttons.forEach(button => button.disabled = true); // Disable both buttons after the feedback
     });
   });
-  createAndAppendContinueButton(); // Create and append the button after setting texts
+  createAndAppendContinueButton(); // Create and append the continue button after setting texts
 }
 
 function createAndAppendContinueButton() {
   const newButton = document.createElement('button'); // Create a new button
-  newButton.classList.add('new-button'); // Creating a class for CSS purposes
-  const feedbackContainer = document.getElementById('feedback-container');
-  const AppendedNewButton = feedbackContainer.appendChild(newButton); // Append the new button to the container
-  newButton.textContent = 'Click here to continue'; // Defining the text of the new button.
-  // Add event listener for the new button
-  newButton.addEventListener('click', () => {
-    newImage.remove();
-    AppendedNewButton.remove(); // Remove the button after it was clicked
+  newButton.classList.add('new-button'); // Create a class for CSS purposes
+  const feedbackContainer = document.getElementById('feedback-container'); // Access the feedback container in the html file
+  const AppendedNewButton = feedbackContainer.appendChild(newButton); // Append the newly created button to the container
+  newButton.textContent = 'Click here to continue'; // Define the text of the new button
+
+  newButton.addEventListener('click', () => // Add event listener for the new button
+  { 
+    newImage.remove(); // remove the smile image
+    AppendedNewButton.remove(); // Remove the new button 
     const feedbackText = document.getElementById('feedback-text');
     feedbackText.textContent = ''; // Clear feedback text
-    if (CounterLottedPairs!=3) {
+    buttons.forEach((button,index) => {
+      button.style.backgroundImage = ""; 
+      button.style.backgroundSize = ""; 
+    }); 
+    if (CounterLottedPairs!=ArraySize) {
     setButtonTexts(); // Call setButtonTexts again for next word pair
     }
+    else { // Game is over
+      buttons.forEach((button, index) => {
+          button.remove(); // Remove the two buttons of the word pairs
+       } )
+    const pagetitle = document.getElementById('maintext');
+    
+  
+    if (Number.isInteger((CorrectAnswers/ArraySize)*100)) // In case of an integer score
+    {
+     Score=(CorrectAnswers/ArraySize)*100; 
+    } 
     else {
-      alert("That's it!")
+      Score = ((CorrectAnswers/ArraySize)*100).toFixed(2); // In case of a decimal score
+    }
+console.log(Score);
+    if (Score===100) 
+    {
+      pagetitle.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br> Your score is: " + Score + "<br> I guess you are a native speaker!"; 
+      console.log(pagetitle);
+    }
+    else if (70<Score && Score<100) 
+    {
+      pagetitle.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br> Your score is: " + Score + "<br> Good Job!"; 
+      console.log(pagetitle);
+    }
+    else
+    {
+      pagetitle.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br> Your score is: " + Score + "<br> You can try it again!"; 
+      console.log(pagetitle);
+    }
+
+    
+  const newButton = document.createElement('button'); // Create a new button
+  newButton.classList.add('endbutton'); // Create a class for CSS purposes
+  const feedbackContainer = document.getElementById('feedback-container'); // Access the feedback container in the html file
+  const AppendedNewButton = feedbackContainer.appendChild(newButton); // Append the newly created button to the container
+  newButton.textContent = 'Click here to play again'; // Define the text of the new button
+  newButton.addEventListener('click', () => {location.reload();}) // Refresh the page to restart the game
     }
   });
 }

@@ -60,6 +60,17 @@ button {
   color: white;
   width: 400px;
   height: 100px;
+  margin-top: 30px;
+}
+
+.endbutton {
+  background-image: url(flagaustria.png);
+  background-position: center center;
+  background-size: cover;
+  width: 400px;
+}
+.endbutton:hover {
+  color: red;
 }
   
 .img {
@@ -67,7 +78,6 @@ button {
   margin: 0 auto; 
   width: 150px;
   height: 150px;
-  margin-bottom: 15;
 }
 
 
