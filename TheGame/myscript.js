@@ -35,10 +35,11 @@ const positiveFeedback = [
   "Excellent!",
   "Great job!",
   "Keep it up!",
-  "You're the right track!",
+  "You're on the right track!",
   "Nailed it! Are you sure you're not Austrian?",
   "You got it right!",
-  "Maybe you should move to Vienna! You're a natural"
+  "Maybe you should move to Vienna!",
+  "You're a natural!"
 ]; 
 function getPositiveFeedback() {
   const randomIndex = Math.floor(Math.random() * positiveFeedback.length);
@@ -107,14 +108,20 @@ function setButtonTexts() {
         CorrectAnswers++; 
         handleCorrectAnswer();
         newImage;
-        newImage.src = 'Happysmile.png';
+        newImage.src = 'Happysmile.jpg';
         happysmile.appendChild(newImage);
         button.style.backgroundImage = "url(flagaustria.png)"; 
         button.style.backgroundSize = "cover"; 
+        document.getElementById("feedback-text").style.color = "rgb(98, 93, 93)";  
+        document.getElementById("feedback-text").style.webkitTextFillColor="white"; 
       } else {
+        document.getElementById("feedback-text").style.color = "black";  
+        document.getElementById("feedback-text").style.webkitTextFillColor="#FFCF00"; 
         handleFalseAnswer();
+        const feedbackText = document.getElementById('feedback-text');
+        feedbackText.textContent = getNegativeFeedback();
         newImage;
-        newImage.src = 'Sadsmile.png';
+        newImage.src = 'Sadsmile.jpg';
         happysmile.appendChild(newImage); 
         button.style.backgroundImage = "url(germany.png)"; 
         button.style.backgroundSize = "cover"; 
@@ -149,8 +156,10 @@ function createAndAppendContinueButton() {
       buttons.forEach((button, index) => {
           button.remove(); // Remove the two buttons of the word pairs
        } )
-    const pagetitle = document.getElementById('maintext');
-    
+    const pagetitle0 = document.getElementById('endtext0');
+    const pagetitle1 = document.getElementById('endtext1');
+    const pagetitle2 = document.getElementById('endtext2');
+    document.getElementById('maintext').remove();
   
     if (Number.isInteger((CorrectAnswers/ArraySize)*100)) // In case of an integer score
     {
@@ -162,18 +171,22 @@ function createAndAppendContinueButton() {
 console.log(Score);
     if (Score===100) 
     {
-      pagetitle.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br> Your score is: " + Score + "<br> I guess you are a native speaker!"; 
-      console.log(pagetitle);
+      pagetitle0.innerHTML="Your score is: " + Score +"<br>"; 
+      pagetitle1.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br>"; 
+      pagetitle2.innerHTML="I guess you are a native speaker!"; 
+      
     }
     else if (70<Score && Score<100) 
     {
-      pagetitle.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br> Your score is: " + Score + "<br> Good Job!"; 
-      console.log(pagetitle);
+      pagetitle0.innerHTML="Your score is: " + Score +"<br>"; 
+      pagetitle1.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br>"; 
+      pagetitle2.innerHTML="Good job!";     
     }
     else
     {
-      pagetitle.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br> Your score is: " + Score + "<br> You can try again!"; 
-      console.log(pagetitle);
+      pagetitle0.innerHTML="Your score is: " + Score +"<br>"; 
+      pagetitle1.innerHTML="You answered "+CorrectAnswers+ " times correctly out of " +ArraySize+". <br>"; 
+      pagetitle2.innerHTML="You can try again!";          
     }
 
     
