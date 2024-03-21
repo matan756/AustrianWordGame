@@ -25,7 +25,14 @@ let wordPairs = [
   ["Paradeiser", "Tomate"],
   ["Kukuruz", "Mais"],
   ["Haberer", "Kumpel"],
-  ["Leiwand", "Großartig"]
+  ["Leiwand", "Großartig"],
+  ["Dirndl", "Kornelkirsche"],
+  ["Eiklar", "Eiweiß"],
+  ["das Joghurt","der Joghurt"],
+  ["Kraut", "Weißkohl"],
+  ["Krankenkassa","Krankenkasse"],
+  ["Mist","Müll"],
+  ["Verkühlung","Erkältung"]
 ]; // The word pairs for the quiz. The correct word is saved in the 0th index of every element.
 const ArraySize=wordPairs.length; //Save the array length. 
 const positiveFeedback = [

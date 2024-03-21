@@ -25,7 +25,14 @@ let wordPairs = [
   ["Paradeiser", "Tomate"],
   ["Kukuruz", "Mais"],
   ["Haberer", "Kumpel"],
-  ["Leiwand", "Großartig"]
+  ["Leiwand", "Großartig"],
+  ["Dirndl", "Kornelkirsche"],
+  ["Eiklar", "Eiweiß"],
+  ["das Joghurt","der Joghurt"],
+  ["Kraut", "Weißkohl"],
+  ["Krankenkassa","Krankenkasse"],
+  ["Mist","Müll"],
+  ["Verkühlung","Erkältung"]
 ]; // The word pairs for the quiz. The correct word is saved in the 0th index of every element.
 const ArraySize=wordPairs.length; //Save the array length. 
 const positiveFeedback = [
@@ -39,7 +46,7 @@ const positiveFeedback = [
   "Ist das dein Spezialgebiet?",
   "Du hast es richtig!",
   "Wunderbar!",
-  "Du lebst ja in Wien, oder?"
+  "Es ist klar, du bist Österreicher!"
 ]; 
 function getPositiveFeedback() {
   const randomIndex = Math.floor(Math.random() * positiveFeedback.length);
@@ -170,7 +177,7 @@ console.log(Score);
     if (Score===100) 
     {
       pagetitle0.innerHTML="Deine Punktzahl ist: " + Score +"<br>"; 
-      pagetitle1.innerHTML="Du hast "+CorrectAnswers+ " mal richtig aus " +ArraySize+" beantwortet <br>"; 
+      pagetitle1.innerHTML="Du hast "+CorrectAnswers+ " mal aus " +ArraySize+" richtig beantwortet <br>"; 
       pagetitle2.innerHTML="Ich schätze, du bist Muttersprachler!"; 
       const firework0 = document.getElementById('firework0'); 
       firework0.classList.add('firework');
@@ -182,7 +189,7 @@ console.log(Score);
     else if (70<Score && Score<100) 
     {
       pagetitle0.innerHTML="Deine Punktzahl ist: " + Score +"<br>"; 
-      pagetitle1.innerHTML="Du hast "+CorrectAnswers+ " mal richtig aus " +ArraySize+" beantwortet <br>"; 
+      pagetitle1.innerHTML="Du hast "+CorrectAnswers+ " mal aus " +ArraySize+" richtig beantwortet <br>"; 
       pagetitle2.innerHTML="Ich schätze, du bist Muttersprachler!"; 
       const firework0 = document.getElementById('firework0'); 
       firework0.classList.add('firework');
@@ -195,7 +202,7 @@ console.log(Score);
     else
     {
       pagetitle0.innerHTML="Deine Punktzahl ist: " + Score +"<br>"; 
-      pagetitle1.innerHTML="Du hast nur "+CorrectAnswers+ " mal richtig aus " +ArraySize+" beantwortet <br>"; 
+      pagetitle1.innerHTML="Du hast nur "+CorrectAnswers+ " mal aus " +ArraySize+" richtig beantwortet <br>"; 
       pagetitle2.innerHTML="Du kannst es noch einmal versuchen!";    
     }
   
