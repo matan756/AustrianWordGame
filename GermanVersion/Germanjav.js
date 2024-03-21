@@ -3,17 +3,18 @@ myform.addEventListener("submit", (e) => {
     e.preventDefault(); 
     let insertedname = document.getElementById("name");
     let participantname = insertedname.value;
+    let participantnameLower= participantname.toLowerCase();
 
     if (participantname==="Berti" || participantname==="berti" || participantname==="BERTI" || participantname==="Berthold" || participantname==="berthold") 
     {
-    document.getElementById("maintext").innerHTML="Hello Herr Glaubach!";
+    document.getElementById("maintext").innerHTML="Hallo Herr Glaubach!";
     }
     else if (participantname==="Edna" || participantname==="edna") 
     {
-    document.getElementById("maintext").innerHTML="Hello Flecken!";
+    document.getElementById("maintext").innerHTML="Hallo Flecken!";
     }
     else {
-    document.getElementById("maintext").innerHTML="Hello " +participantname+"!";
+    document.getElementById("maintext").innerHTML="Hallo " +participantname+"!";
     }
     
     myform.remove();
@@ -22,17 +23,16 @@ myform.addEventListener("submit", (e) => {
     startbutton.classList.add('startbutton'); 
     const startcontainer = document.getElementById('startcontainer'); 
     const AppendedNewButton = startcontainer.appendChild(startbutton); 
-    startbutton.textContent = 'Click here to start the game!'; 
+    startbutton.textContent = 'Klicken Sie hier, um das Spiel zu starten!'; 
     startbutton.addEventListener("click", () =>
     {
         console.log("done")
-        return document.location.href = "TheGame\\myhtml.html";
+        return document.location.href = "TheGameGerman\\myhtml.html";
     })
     addEventListener("keydown", (event)=>
     {   if (event.keyCode===13) {
-        return document.location.href = "TheGame\\myhtml.html";
+        return document.location.href = "TheGameGerman\\myhtml.html";
     }
     })
  }
   ) 
-  const SendOut = participantname; 
