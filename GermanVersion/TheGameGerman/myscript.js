@@ -61,7 +61,7 @@ const negativeFeedback =
 [
   "Falsch...",
   "Versuch es doch nochmal!",
-  "Das ist nicht die richtige Answer!",
+  "Das ist nicht die richtige Antwort!",
   "Unrichtig!"
 ]; 
 
@@ -210,7 +210,7 @@ console.log(Score);
   newButton.classList.add('endbutton'); // Create a class for CSS purposes
   const feedbackContainer = document.getElementById('feedback-container'); // Access the feedback container in the html file
   const AppendedNewButton = feedbackContainer.appendChild(newButton); // Append the newly created button to the container
-  newButton.textContent = 'Click here to play again'; // Define the text of the new button
+  newButton.textContent = 'Klicken Sie hier, um wieder zu spielen'; // Define the text of the new button
   newButton.addEventListener('click', () => {location.reload();}) // Refresh the page to restart the game
     }
   });

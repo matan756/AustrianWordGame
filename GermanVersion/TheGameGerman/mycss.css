@@ -6,14 +6,26 @@ body {
   background-size: 500px;
   overflow: hidden;
 }
+.homepage {
+  display: block;
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 50;
+  width: 80px;
+  height: 80px;
+}
 
-h1 {
+.homepage:hover {
+  transform:scale(1.2);
+}
+
+  h1 {
     font-size: 100px; 
     font-weight: bold;
     color: black;
     -webkit-text-fill-color: #494D55;
     -webkit-text-stroke: 3px #F8CC6D;
-    margin-top: 0px;
+    margin-top: -25px;
     margin-bottom: 40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
