@@ -13,6 +13,10 @@ myform.addEventListener("submit", (e) => {
     {
     document.getElementById("maintext").innerHTML="Hallo Flecken!";
     }
+    else if (participantname==="Ioana" || participantname==="ioana" || participantname==="IOANA") 
+    {
+    document.getElementById("maintext").innerHTML="Bună, dragă Ioana!";
+    }
     else {
     document.getElementById("maintext").innerHTML="Hallo " +participantname+"!";
     }
