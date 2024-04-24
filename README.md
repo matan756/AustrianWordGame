@@ -2,4 +2,9 @@
 
 **Do you think that you know Austrian German well?**
 
-Start the game and you will see! 
+Test your knowledge of Austrian German with this educational game!  Can you tell the difference between standard German and words used in Austria?
+
+
+
+
+
